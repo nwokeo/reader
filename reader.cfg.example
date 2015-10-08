@@ -1,0 +1,8 @@
+[Database]
+host=host.domain.com
+username=myuser
+password=mypassword
+
+[Reader]
+default_articles=20
+default_sort=descending
