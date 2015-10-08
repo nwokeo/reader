@@ -37,8 +37,8 @@
         "content" text(2147483647),
         "viewed_flag" bool,
         "read_later_flag" bool,
-        "add_date" timestamptz not null,
-        "update_date" timestamptz not null,
+        "add_date" timestamptz not null default now(),
+        "update_date" timestamptz not null default now(),
         "rating_int" int2,
         "rating_enum" rating(2147483647),
         "publish_date" timestamp,
@@ -60,6 +60,7 @@
         "unread_count" int4,
         "add_date" timestamptz not null,
         "active_flag" bool,
+        "update_date" timestamptz not null
         PRIMARY KEY ("id")
     );
     CREATE UNIQUE INDEX "id_index" ON "feeds" ("id");
