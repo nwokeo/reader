@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <script src="//code.jquery.com/jquery-1.11.3.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <script type=text/javascript>
+    $(function() {
+      $('a#go').bind('click', function() {
+        $.getJSON('/api/labels_v',
+          //,{ a: $('input[name="a"]').val(),
+          //  b: $('input[name="b"]').val()} ,
+          function(data) {
+              for (datum in data) {
+                  console.log(datum, ':', data[datum]);
+              };
+              //console.log(data.objects);
+              for (label in data.objects) {
+                  $( ".labels" ).append( "<li>" + data.objects[label].label + "</li>" );
+              };
+           //$("#result").text(data);
+        });
+        return false;
+      });
+    });
+  </script>
+  </head>
+
+  <body>
+    <div class="container">
+        <a href="javascript:void();" id="go">go</a>
+      <ul class="labels">
+      </ul>
+    </div>
+</body>
+
+</html>
